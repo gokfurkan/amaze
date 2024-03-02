@@ -37,11 +37,18 @@ namespace Template.Scripts
         public static Action OnMouseClickUp;
         public static void CallMouseClickUp() { OnMouseClickUp?.Invoke(); }
         
+        public static Action <SwipeDirection> OnDetectSwipe;
+        public static void CallDetectSwipe(SwipeDirection direction) { OnDetectSwipe?.Invoke(direction); }
+        
         //Shop
         public static Action OnChangeShopPanelPage;
         public static void CallChangeShopPanelPage() { OnChangeShopPanelPage?.Invoke(); }
 
         public static Action OnSetPlayerSkin;
         public static void CallSetPlayerSkin() { OnSetPlayerSkin?.Invoke(); }
+        
+        //Player
+        
+        
     }
 }

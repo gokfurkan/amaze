@@ -66,4 +66,12 @@ namespace Template.Scripts
     {
         
     }
+
+    public enum SwipeDirection
+    {
+        Left,
+        Right,
+        Forward,
+        Back,
+    }
 }
