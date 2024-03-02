@@ -1,1 +1,1 @@
-# F-Template
+# Amaze Clone Project
