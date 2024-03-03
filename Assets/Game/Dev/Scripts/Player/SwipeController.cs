@@ -2,7 +2,7 @@
 using Template.Scripts;
 using UnityEngine;
 
-namespace Game.Dev.Scripts
+namespace Game.Dev.Scripts.Player
 {
     public class SwipeController : MonoBehaviour
     {

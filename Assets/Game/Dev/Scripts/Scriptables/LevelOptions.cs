@@ -8,14 +8,19 @@ namespace Game.Dev.Scripts.Scriptables
     [CreateAssetMenu(fileName = "LevelOptions", menuName = "ScriptableObjects/LevelOptions")]
     public class LevelOptions : ScriptableObject
     {
+        public int tutorialLevelAmount;
         public List<LevelDataOption> levelDataOptions;
+
+        public int GetDataLevel()
+        {
+            return SaveManager.instance.saveData.GetLevel() % levelDataOptions.Count;
+        }
         
         #region Grid
 
         public int[,] GetGridValues()
         {
-            int currentLevel = LevelSpawnManager.instance.levelIndex;
-            string[] lines = levelDataOptions[currentLevel].gridData.Trim().Split('\n');
+            string[] lines = levelDataOptions[GetDataLevel()].gridData.Trim().Split('\n');
     
             List<string> cleanedLines = new List<string>();
     
@@ -50,7 +55,7 @@ namespace Game.Dev.Scripts.Scriptables
             return gridValues;
         }
         
-        public int GetGrid()
+        public int GetGridAmount()
         {
             int[,] gridValues = GetGridValues();
             int gridCount = 0;
@@ -69,7 +74,7 @@ namespace Game.Dev.Scripts.Scriptables
             return gridCount;
         }
 
-        public int GetWall()
+        public int GetWallAmount()
         {
             int[,] gridValues = GetGridValues();
             int wallCount = 0;
@@ -95,6 +100,7 @@ namespace Game.Dev.Scripts.Scriptables
     public class LevelDataOption
     {
         public string levelName;
+        public bool tutorialLevel;
         
         [Header("Grid")]
         [TextArea(10, 10)]

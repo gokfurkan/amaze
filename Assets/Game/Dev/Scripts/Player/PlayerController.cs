@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using DG.Tweening;
 using Game.Dev.Scripts.Scriptables;
@@ -6,7 +5,7 @@ using Sirenix.OdinInspector;
 using Template.Scripts;
 using UnityEngine;
 
-namespace Game.Dev.Scripts
+namespace Game.Dev.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {
@@ -21,16 +20,23 @@ namespace Game.Dev.Scripts
         private void OnEnable()
         {
             BusSystem.OnDetectSwipe += OnDetectSwipe;
+            BusSystem.OnSetPlayerStartPos += SetStartPos;
         }
 
         private void OnDisable()
         {
             BusSystem.OnDetectSwipe -= OnDetectSwipe;
+            BusSystem.OnSetPlayerStartPos -= SetStartPos;
         }
 
         private void Awake()
         {
             playerOptions = InfrastructureManager.instance.gameSettings.playerOptions;
+        }
+
+        private void SetStartPos(Vector3 startPos)
+        {
+            transform.position = startPos;
         }
 
         private void OnDetectSwipe(SwipeDirection direction)

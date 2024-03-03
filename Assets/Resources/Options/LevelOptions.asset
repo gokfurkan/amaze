@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c84fdf60f4d439c83d0319cb5ae3d96, type: 3}
   m_Name: LevelOptions
   m_EditorClassIdentifier: 
+  tutorialLevelAmount: 1
   levelDataOptions:
   - levelName: Level 1
     gridData: '0,0,0,0,0,0,0,
@@ -24,7 +25,23 @@ MonoBehaviour:
 
       0,0,0,1,0,1,0,
 
-      0,1,1,1,0,1,0,
+      0,2,1,1,0,1,0,
+
+      0,0,0,0,0,0,0'
+    cameraPos: {x: 2, y: 15, z: -0.5}
+    cameraRot: {x: 80, y: 0, z: 0}
+  - levelName: Level 2
+    gridData: '0,0,0,0,0,0,0,
+
+      0,1,1,1,1,1,0,
+
+      0,1,0,0,0,1,0,
+
+      0,1,0,1,0,1,0,
+
+      0,1,0,1,0,1,0,
+
+      0,2,0,1,1,1,0,
 
       0,0,0,0,0,0,0'
     cameraPos: {x: 2, y: 15, z: -0.5}

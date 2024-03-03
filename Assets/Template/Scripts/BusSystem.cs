@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Template.Scripts
 {
@@ -49,6 +50,7 @@ namespace Template.Scripts
         
         //Player
         
-        
+        public static Action <Vector3> OnSetPlayerStartPos;
+        public static void CallSetPlayerStartPos(Vector3 startPos) { OnSetPlayerStartPos?.Invoke(startPos); }
     }
 }

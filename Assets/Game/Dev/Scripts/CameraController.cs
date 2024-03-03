@@ -21,7 +21,7 @@ namespace Game.Dev.Scripts
 
         private void InitCamera()
         {
-            int currentLevel = LevelSpawnManager.instance.levelIndex;
+            int currentLevel = levelOptions.GetDataLevel();
             
             transform.position = levelOptions.levelDataOptions[currentLevel].cameraPos;
             transform.eulerAngles = levelOptions.levelDataOptions[currentLevel].cameraRot;

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Game.Dev.Scripts
+namespace Game.Dev.Scripts.Grid
 {
     [ExecuteInEditMode]
     public class LockToGrid : MonoBehaviour

@@ -2,7 +2,7 @@
 using Template.Scripts;
 using UnityEngine;
 
-namespace Game.Dev.Scripts
+namespace Game.Dev.Scripts.Grid
 {
     public class GridManager : MonoBehaviour
     {
@@ -39,23 +39,20 @@ namespace Game.Dev.Scripts
 
                     int value = gridValues[z, x];
 
-                    switch (value)
+                    var poolType = PoolType.Wall;
+                    if (value == 1)
                     {
-                        case 0:
-                        {
-                            var createdWall = Pooling.instance.poolObjects[(int)PoolType.Wall].GetItem();
-                            createdWall.transform.position = spawnPosition;
-                            createdWall.SetActive(true);
-                            break;
-                        }
-                        case 1:
-                        {
-                            var createdGrid = Pooling.instance.poolObjects[(int)PoolType.Grid].GetItem();
-                            createdGrid.transform.position = spawnPosition;
-                            createdGrid.SetActive(true);
-                            break;
-                        }
+                        poolType = PoolType.Grid;
                     }
+                    else if (value == 2)
+                    {
+                        poolType = PoolType.Grid;
+                        BusSystem.CallSetPlayerStartPos(spawnPosition);
+                    }
+
+                    var createdObject = Pooling.instance.poolObjects[(int)poolType].GetItem();
+                    createdObject.transform.position = spawnPosition;
+                    createdObject.SetActive(true);
                 }
             }
         }
