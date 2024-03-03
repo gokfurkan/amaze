@@ -1,5 +1,6 @@
 ﻿using System;
 using Sirenix.OdinInspector;
+using Template.Scripts.Scriptables;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -69,6 +70,11 @@ namespace Template.Scripts
 
         private void OnLevelLoad()
         {
+            foreach (var pool in Pooling.instance.poolObjects)
+            {
+                pool.PutAll();
+            }
+            
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
         }

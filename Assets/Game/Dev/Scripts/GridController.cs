@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Dev
+namespace Game.Dev.Scripts
 {
     public class GridController : MonoBehaviour
     {

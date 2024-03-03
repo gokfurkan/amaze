@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Game.Dev.Scriptables
+namespace Game.Dev.Scripts.Scriptables
 {
     [CreateAssetMenu(fileName = "PlayerOptions", menuName = "ScriptableObjects/PlayerOptions")]
     public class PlayerOptions : ScriptableObject

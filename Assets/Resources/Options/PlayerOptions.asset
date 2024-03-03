@@ -30,4 +30,5 @@ MonoBehaviour:
   forwardRotateTarget: {x: 0, y: 180, z: 0}
   backRotateTarget: {x: 0, y: 0, z: 0}
   moveAmountPerGrid: 1
-  moveDurationPerGrid: 0.075
+  moveDurationPerGrid: 0.045
+  moveEase: 0

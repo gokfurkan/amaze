@@ -10,6 +10,8 @@ namespace Template.Scripts
         [SerializeField] private int tutorialLevels = 0;
         [SerializeField] private List<GameObject> levelList;
         
+        [Space(10)]
+        public int levelIndex;
         private GameObject loadedLevel;
         private List<GameObject> levelListCache = new List<GameObject>();
 
@@ -44,7 +46,7 @@ namespace Template.Scripts
                 delta = tutorialLevels;
             }
             
-            int levelIndex = (SaveManager.instance.saveData.GetLevel() - delta) % levelListCache.Count;
+            levelIndex = (SaveManager.instance.saveData.GetLevel() - delta) % levelListCache.Count;
             loadedLevel = Instantiate(levelListCache[levelIndex], playZone, true);
         }
     }

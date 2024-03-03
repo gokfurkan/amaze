@@ -1,15 +1,19 @@
-﻿using Game.Dev.Scriptables;
+﻿using Game.Dev.Scripts.Scriptables;
 using Template.Scripts;
 using UnityEngine;
 
-namespace Game.Dev
+namespace Game.Dev.Scripts
 {
     public class SwipeController : MonoBehaviour
     {
-        public PlayerOptions playerOptions;
-
+        private PlayerOptions playerOptions;
         private Vector2 startPosition;
         private Vector2 endPosition;
+        
+        private void Awake()
+        {
+            playerOptions = InfrastructureManager.instance.gameSettings.playerOptions;
+        }
 
         private void Update()
         {

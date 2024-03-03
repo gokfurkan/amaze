@@ -74,4 +74,10 @@ namespace Template.Scripts
         Forward,
         Back,
     }
+
+    public enum PoolType
+    {
+        Wall,
+        Grid,
+    }
 }

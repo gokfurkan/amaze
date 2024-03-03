@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Dev.Scripts.Scriptables;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -14,6 +15,10 @@ namespace Template.Scripts.Scriptables
         public EconomyOptions economyOptions;
         public UIOptions uiOptions;
         public LogOptions logOptions;
+
+        [Space(10)]
+        public PlayerOptions playerOptions;
+        public LevelOptions levelOptions;
     }
 
     [Serializable]

@@ -1,19 +1,22 @@
-using System.Collections.Generic;
+using System;
+using System.Linq;
 using DG.Tweening;
-using Game.Dev.Scriptables;
+using Game.Dev.Scripts.Scriptables;
 using Sirenix.OdinInspector;
 using Template.Scripts;
 using UnityEngine;
 
-namespace Game.Dev
+namespace Game.Dev.Scripts
 {
     public class PlayerController : MonoBehaviour
     {
-        public PlayerOptions playerOptions;
+        public Transform raycastOrigin;
 
         [Space(10)]
         [ReadOnly] public bool hasMoving;
         [ReadOnly] public int lastTargetGridAmount;
+
+        private PlayerOptions playerOptions;
 
         private void OnEnable()
         {
@@ -23,6 +26,11 @@ namespace Game.Dev
         private void OnDisable()
         {
             BusSystem.OnDetectSwipe -= OnDetectSwipe;
+        }
+
+        private void Awake()
+        {
+            playerOptions = InfrastructureManager.instance.gameSettings.playerOptions;
         }
 
         private void OnDetectSwipe(SwipeDirection direction)
@@ -49,18 +57,22 @@ namespace Game.Dev
 
         private void PerformRaycastAndCountHits()
         {
-            RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, playerOptions.rayCastMaxDistance, playerOptions.rayCastLayerMask);
+            RaycastHit[] hits = Physics.RaycastAll(raycastOrigin.position, raycastOrigin.forward, playerOptions.rayCastMaxDistance, playerOptions.rayCastLayerMask)
+                .OrderBy(hit => Vector3.Distance(raycastOrigin.position, hit.point))
+                .ToArray();
 
             lastTargetGridAmount = 0;
 
             foreach (RaycastHit hit in hits)
             {
-                if (ExtensionsMethods.IsInLayerMask(hit.collider.gameObject.layer , playerOptions.gridLayerMask))
+                if (!ExtensionsMethods.IsInLayerMask(hit.collider.gameObject.layer, playerOptions.gridLayerMask))
                 {
-                    lastTargetGridAmount++;
+                    break;
                 }
+
+                lastTargetGridAmount++;
             }
-            
+
             MoveToTarget();
         }
 
@@ -69,12 +81,10 @@ namespace Game.Dev
             var moveDistance = lastTargetGridAmount * playerOptions.moveAmountPerGrid;
             var moveDuration = lastTargetGridAmount * playerOptions.moveDurationPerGrid;
 
-            transform.DOLocalMove(transform.localPosition + transform.forward * moveDistance, moveDuration)
-            .SetEase(playerOptions.moveEase)    
-            .OnComplete(() =>
-            {
-                hasMoving = false;
-            });
+            DOTween.Sequence()
+                .Append(transform.DOLocalMove(transform.localPosition + transform.forward * moveDistance, moveDuration)
+                .SetEase(playerOptions.moveEase))
+                .OnComplete(() => hasMoving = false);
         }
     }
 }

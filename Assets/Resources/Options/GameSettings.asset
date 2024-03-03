@@ -44,3 +44,5 @@ MonoBehaviour:
     textFont: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   logOptions:
     logLevelToSave: 1
+  playerOptions: {fileID: 11400000, guid: e223c71f77fb4c140b5274be97a3526e, type: 2}
+  levelOptions: {fileID: 11400000, guid: 0c096ef53cd10cc4082336f945309a42, type: 2}
