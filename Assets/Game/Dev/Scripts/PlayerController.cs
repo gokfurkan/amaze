@@ -10,7 +10,6 @@ namespace Game.Dev
     public class PlayerController : MonoBehaviour
     {
         public PlayerOptions playerOptions;
-        public Transform raycastOrigin;
 
         [Space(10)]
         [ReadOnly] public bool hasMoving;
@@ -45,21 +44,37 @@ namespace Game.Dev
                 _ => Vector3.zero
             };
 
-            transform.DOLocalRotate(targetRotation, playerOptions.rotateDuration).OnComplete(PerformRaycast);
+            transform.DOLocalRotate(targetRotation, playerOptions.rotateDuration).OnComplete(PerformRaycastAndCountHits);
         }
 
-        private void PerformRaycast()
+        private void PerformRaycastAndCountHits()
         {
-            var hits = PerformRaycastAndCountHits(raycastOrigin.position, transform.forward, playerOptions.gridLayerMask);
+            RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, playerOptions.rayCastMaxDistance, playerOptions.rayCastLayerMask);
 
-            lastTargetGridAmount = hits.Length;
-    
-            hasMoving = false;
+            lastTargetGridAmount = 0;
+
+            foreach (RaycastHit hit in hits)
+            {
+                if (ExtensionsMethods.IsInLayerMask(hit.collider.gameObject.layer , playerOptions.gridLayerMask))
+                {
+                    lastTargetGridAmount++;
+                }
+            }
+            
+            MoveToTarget();
         }
 
-        private RaycastHit[] PerformRaycastAndCountHits(Vector3 origin, Vector3 direction, LayerMask layerMask)
+        private void MoveToTarget()
         {
-            return Physics.RaycastAll(origin, direction, playerOptions.rayCastMaxDistance, layerMask);
+            var moveDistance = lastTargetGridAmount * playerOptions.moveAmountPerGrid;
+            var moveDuration = lastTargetGridAmount * playerOptions.moveDurationPerGrid;
+
+            transform.DOLocalMove(transform.localPosition + transform.forward * moveDistance, moveDuration)
+            .SetEase(playerOptions.moveEase)    
+            .OnComplete(() =>
+            {
+                hasMoving = false;
+            });
         }
     }
 }

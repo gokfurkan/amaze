@@ -1,12 +1,12 @@
-﻿using Template.Scripts;
+﻿using Game.Dev.Scriptables;
+using Template.Scripts;
 using UnityEngine;
 
 namespace Game.Dev
 {
     public class SwipeController : MonoBehaviour
     {
-        [SerializeField] private bool detectSwipeOnlyAfterRelease = false;
-        [SerializeField] private float minDistanceForSwipe = 20f;
+        public PlayerOptions playerOptions;
 
         private Vector2 startPosition;
         private Vector2 endPosition;
@@ -19,7 +19,7 @@ namespace Game.Dev
                 endPosition = Input.mousePosition;
             }
 
-            if (!detectSwipeOnlyAfterRelease && Input.GetMouseButton(0))
+            if (!playerOptions.detectSwipeOnlyAfterRelease && Input.GetMouseButton(0))
             {
                 endPosition = Input.mousePosition;
                 DetectSwipe();
@@ -54,7 +54,7 @@ namespace Game.Dev
 
         private bool SwipeDistanceCheckMet()
         {
-            return VerticalMovementDistance() > minDistanceForSwipe || HorizontalMovementDistance() > minDistanceForSwipe;
+            return VerticalMovementDistance() > playerOptions.minDistanceForSwipe || HorizontalMovementDistance() > playerOptions.minDistanceForSwipe;
         }
 
         private float VerticalMovementDistance()
