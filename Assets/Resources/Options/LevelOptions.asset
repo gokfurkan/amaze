@@ -27,5 +27,5 @@ MonoBehaviour:
       0,1,1,1,0,1,0,
 
       0,0,0,0,0,0,0'
-    cameraPos: {x: 0, y: 0, z: 0}
-    cameraRot: {x: 0, y: 0, z: 0}
+    cameraPos: {x: 2, y: 15, z: -0.5}
+    cameraRot: {x: 80, y: 0, z: 0}
