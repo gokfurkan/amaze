@@ -16,29 +16,29 @@ namespace Game.Dev.Scripts.Scriptables
         {
             int currentLevel = LevelSpawnManager.instance.levelIndex;
             string[] lines = levelDataOptions[currentLevel].gridData.Trim().Split('\n');
-            
+    
             List<string> cleanedLines = new List<string>();
-            
+    
             foreach (string line in lines)
             {
                 string trimmedLine = line.Trim();
-                
+        
                 if (!trimmedLine.StartsWith("//"))
                 {
                     cleanedLines.Add(trimmedLine.TrimEnd(',', ' '));
                 }
             }
-            
+    
             lines = cleanedLines.ToArray();
-            
+    
             int rowCount = lines.Length;
             int colCount = lines[0].Trim().Split(',').Length;
-            
+    
             int[,] gridValues = new int[rowCount, colCount];
-            
+    
             for (int i = 0; i < rowCount; i++)
             {
-                string[] values = lines[i].Trim().Split(',');
+                string[] values = lines[rowCount - 1 - i].Trim().Split(',');
 
                 for (int j = 0; j < colCount; j++)
                 {
