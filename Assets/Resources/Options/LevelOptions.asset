@@ -38,13 +38,18 @@ MonoBehaviour:
       gridNormalScale: 1
       gridEndScale: 2
   environmentOptions:
-  - environmentName: Minecraft
-    wallMaterial: {fileID: 2100000, guid: 24a2ab8eee968d642878e6297e1b30b0, type: 2}
-    activeGridMaterial: {fileID: 2100000, guid: 8297eb4205d6e974b86ce438709ecc23, type: 2}
-    passiveGridMaterial: {fileID: 2100000, guid: 5788807fce5d2a743936d537e7541cd7, type: 2}
-    gridParticleMaterial: {fileID: 2100000, guid: ccfff22ed954c6f41ade040a8a7c8f22, type: 2}
+  - environmentName: Classic
+    wallMaterial: {fileID: 2100000, guid: 69a0439a64d9813468fa3ce1f91c774c, type: 2}
+    activeGridMaterial: {fileID: 2100000, guid: 1b2140c9d9b99454eb7ca14248c7f363, type: 2}
+    passiveGridMaterial: {fileID: 2100000, guid: c18d05df4dd218540be9b73f105615b4, type: 2}
+    gridParticleMaterial: {fileID: 2100000, guid: ff3113680e5699e41b1adcb83771b312, type: 2}
   - environmentName: Wood
     wallMaterial: {fileID: 2100000, guid: 21b3cc503eb199b47b451211654444bd, type: 2}
     activeGridMaterial: {fileID: 2100000, guid: 109273042e973674cbfb67fc95ef8481, type: 2}
     passiveGridMaterial: {fileID: 2100000, guid: d395faed82dcd5346bc6408a0cc31f9a, type: 2}
     gridParticleMaterial: {fileID: 2100000, guid: 342f87e71a766f245a275d36404383e8, type: 2}
+  - environmentName: Minecraft
+    wallMaterial: {fileID: 2100000, guid: 24a2ab8eee968d642878e6297e1b30b0, type: 2}
+    activeGridMaterial: {fileID: 2100000, guid: 8297eb4205d6e974b86ce438709ecc23, type: 2}
+    passiveGridMaterial: {fileID: 2100000, guid: 5788807fce5d2a743936d537e7541cd7, type: 2}
+    gridParticleMaterial: {fileID: 2100000, guid: ccfff22ed954c6f41ade040a8a7c8f22, type: 2}
