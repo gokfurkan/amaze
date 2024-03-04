@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raycastOrigin: {fileID: 262273035818511103}
   hasMoving: 0
-  lastTargetGridAmount: 0
+  remainingMoveGridAmount: 0
 --- !u!114 &262273035192075887
 MonoBehaviour:
   m_ObjectHideFlags: 0

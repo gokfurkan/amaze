@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3756861781808411069}
   - component: {fileID: 1520259315143548576}
   - component: {fileID: 4197312013680191936}
+  - component: {fileID: 2508118668698293037}
   m_Layer: 5
   m_Name: txt_economyAmount
   m_TagString: Untagged
@@ -146,6 +147,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 339385132bea4289b276b4a2b06d41f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2508118668698293037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230658898770839040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ece8ea3074a44ba912f7b91993ab814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7964892841951908446
