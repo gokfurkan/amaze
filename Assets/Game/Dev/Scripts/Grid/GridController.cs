@@ -8,13 +8,11 @@ namespace Game.Dev.Scripts.Grid
 {
     public class GridController : MonoBehaviour , Interacteable
     {
-        public bool hasStartGrid;
-
-        [Space(10)]
         public MeshRenderer meshRenderer;
-
+        
+        [HideInInspector] public bool hasStartGrid;
         private bool canInteract = true;
-
+        
         private Material gridActiveMaterial;
         private Material gridPassiveMaterial;
         private LevelOptions levelOptions;
