@@ -41,6 +41,8 @@ namespace Game.Dev.Scripts.Player
 
         private void OnDetectSwipe(SwipeDirection direction)
         {
+            if (GameManager.instance.gameStatus.hasLevelEnd) return;
+            
             if (hasMoving) return;
             hasMoving = true;
 

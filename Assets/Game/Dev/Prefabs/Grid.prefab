@@ -189,3 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9491a01264014f01b841513b8a24df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasStartGrid: 0
+  meshRenderer: {fileID: 6071004685859420353}
+  activeMaterial: {fileID: 2100000, guid: d7bbec89a8c1dba41b1e952a3ecafc50, type: 2}
+  passiveMaterial: {fileID: 2100000, guid: e1fd8a68221aea74f9e2cbfcd0486bd9, type: 2}

@@ -17,6 +17,8 @@ namespace Game.Dev.Scripts.Player
 
         private void Update()
         {
+            if (GameManager.instance.gameStatus.hasLevelEnd) return;
+            
             if (Input.GetMouseButtonDown(0))
             {
                 startPosition = Input.mousePosition;

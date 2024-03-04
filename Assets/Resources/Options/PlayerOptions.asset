@@ -32,3 +32,6 @@ MonoBehaviour:
   moveAmountPerGrid: 1
   moveDurationPerGrid: 0.045
   moveEase: 0
+  canInteractLayers:
+    serializedVersion: 2
+    m_Bits: 128

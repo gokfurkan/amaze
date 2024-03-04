@@ -1,4 +1,5 @@
-﻿using Game.Dev.Scripts.Scriptables;
+﻿using System;
+using Game.Dev.Scripts.Scriptables;
 using Template.Scripts;
 using UnityEngine;
 
@@ -9,7 +10,22 @@ namespace Game.Dev.Scripts.Grid
         public Transform startPos;
         
         private LevelOptions levelOptions;
-        
+
+        private int activatedGridAmount;
+        private int totalGridOnLevel;
+
+        private void OnEnable()
+        {
+            BusSystem.OnActivateGrid += OnActivateGrid;
+            BusSystem.OnResetGrids += ResetGrids;
+        }
+
+        private void OnDisable()
+        {
+            BusSystem.OnActivateGrid -= OnActivateGrid;
+            BusSystem.OnResetGrids -= ResetGrids;
+        }
+
         private void Awake()
         {
             levelOptions = InfrastructureManager.instance.gameSettings.levelOptions;
@@ -39,20 +55,49 @@ namespace Game.Dev.Scripts.Grid
 
                     int value = gridValues[z, x];
 
-                    var poolType = PoolType.Wall;
-                    if (value == 1)
-                    {
-                        poolType = PoolType.Grid;
-                    }
-                    else if (value == 2)
-                    {
-                        poolType = PoolType.Grid;
-                        BusSystem.CallSetPlayerStartPos(spawnPosition);
-                    }
+                    var poolType = (value == 0) ? PoolType.Wall : PoolType.Grid;
 
                     var createdObject = Pooling.instance.poolObjects[(int)poolType].GetItem();
                     createdObject.transform.position = spawnPosition;
+
+                    if (value is 1 or 2)
+                    {
+                        var gridController = createdObject.GetComponent<GridController>();
+                        if (value == 2)
+                        {
+                            BusSystem.CallSetPlayerStartPos(spawnPosition);
+                            gridController.hasStartGrid = true;
+                        }
+                        gridController.InitGrid();
+                    }
+
                     createdObject.SetActive(true);
+                }
+            }
+
+            totalGridOnLevel = levelOptions.GetGridAmount();
+        }
+
+        private void OnActivateGrid()
+        {
+            activatedGridAmount++;
+            if (activatedGridAmount == totalGridOnLevel - 1)
+            {
+                BusSystem.CallLevelEnd(true);
+            }
+        }
+
+        private void ResetGrids()
+        {
+            var gridPool = Pooling.instance.poolObjects[(int)PoolType.Grid];
+            var passiveItems = gridPool.passiveItems.ToArray();
+            
+            foreach (var item in passiveItems)
+            {
+                var gridController = item.GetComponent<GridController>();
+                if (gridController != null)
+                {
+                    gridController.ResetGrid();
                 }
             }
         }

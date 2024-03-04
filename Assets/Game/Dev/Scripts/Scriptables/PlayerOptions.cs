@@ -32,6 +32,9 @@ namespace Game.Dev.Scripts.Scriptables
         public float moveDurationPerGrid;
         public Ease moveEase;
 
+        [Header("Interact")] 
+        public LayerMask canInteractLayers;
+
 
 
     }

@@ -12,7 +12,7 @@ namespace Template.Scripts.Scriptables
         public int incrementSize = 5;
 
         private Dictionary<int, GameObject> activeItems;
-        private Stack<GameObject> passiveItems;
+        [HideInInspector] public Stack<GameObject> passiveItems;
         private Transform parent;
     
         public void Setup(Transform poolParent)

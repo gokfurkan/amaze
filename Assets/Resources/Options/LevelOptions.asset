@@ -49,3 +49,27 @@ MonoBehaviour:
     colExpandAmount: 5
     cameraPos: {x: 7, y: 15, z: 7.25}
     cameraRot: {x: 80, y: 0, z: 0}
+  - levelName: Level 3
+    gridData: '0,0,0,0,0,0,0,0,0,
+
+      0,1,1,1,0,1,1,1,0,
+
+      0,1,0,1,0,1,0,1,0,
+
+      0,1,0,1,0,1,0,1,0,
+
+      0,1,1,1,1,1,1,1,0,
+
+      0,0,0,1,0,1,0,0,0,
+
+      0,0,0,1,0,1,0,0,0,
+
+      0,0,0,1,0,1,0,0,0,
+
+      0,0,0,1,2,1,0,0,0,
+
+      0,0,0,0,0,0,0,0,0'
+    rowExpandAmount: 5
+    colExpandAmount: 3
+    cameraPos: {x: 6, y: 15, z: 5.5}
+    cameraRot: {x: 80, y: 0, z: 0}

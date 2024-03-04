@@ -52,5 +52,13 @@ namespace Template.Scripts
         
         public static Action <Vector3> OnSetPlayerStartPos;
         public static void CallSetPlayerStartPos(Vector3 startPos) { OnSetPlayerStartPos?.Invoke(startPos); }
+        
+        //Grid
+        
+        public static Action OnActivateGrid;
+        public static void CallActivateGrid() { OnActivateGrid?.Invoke(); }
+        
+        public static Action OnResetGrids;
+        public static void CallResetGrids() { OnResetGrids?.Invoke(); }
     }
 }

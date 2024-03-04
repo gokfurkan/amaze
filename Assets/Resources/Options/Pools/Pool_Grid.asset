@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pool_Grid
   m_EditorClassIdentifier: 
   prefab: {fileID: 7179964027331693020, guid: d4d73b4a0c84e8443aa837f1f87ab830, type: 3}
-  preloadAmount: 50
+  preloadAmount: 100
   incrementSize: 10
