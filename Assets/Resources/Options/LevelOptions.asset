@@ -15,6 +15,52 @@ MonoBehaviour:
   levelDataOptions:
   - levelName: Level 1
     gridOption:
+      gridData: '0,0,0,0,0,0,
+
+        0,1,1,1,1,0,
+
+        0,1,0,0,1,0,
+
+        0,1,0,0,1,0,
+
+        0,2,1,1,1,0,
+
+        0,0,0,0,0,0'
+      rowExpandAmount: 8
+      colExpandAmount: 5
+    cameraOption:
+      cameraPos: {x: 6.5, y: 13, z: 7.25}
+      cameraRot: {x: 80, y: 0, z: 0}
+    particleOption:
+      gridPosY: 0.5
+      gridNormalScale: 1
+      gridEndScale: 2
+  - levelName: Level 2
+    gridOption:
+      gridData: '0,0,0,0,0,0,0,
+
+        0,1,1,1,1,1,0,
+
+        0,1,0,0,0,1,0,
+
+        0,1,0,1,0,1,0,
+
+        0,1,0,1,0,1,0,
+
+        0,2,0,1,1,1,0,
+
+        0,0,0,0,0,0,0'
+      rowExpandAmount: 8
+      colExpandAmount: 5
+    cameraOption:
+      cameraPos: {x: 7, y: 14, z: 7.25}
+      cameraRot: {x: 80, y: 0, z: 0}
+    particleOption:
+      gridPosY: 0.5
+      gridNormalScale: 1
+      gridEndScale: 2
+  - levelName: Level 3
+    gridOption:
       gridData: '0,0,0,0,0,0,0,
 
         0,1,1,1,0,1,0,
@@ -32,6 +78,34 @@ MonoBehaviour:
       colExpandAmount: 5
     cameraOption:
       cameraPos: {x: 7, y: 15, z: 7.25}
+      cameraRot: {x: 80, y: 0, z: 0}
+    particleOption:
+      gridPosY: 0.5
+      gridNormalScale: 1
+      gridEndScale: 2
+  - levelName: Level 4
+    gridOption:
+      gridData: '0,0,0,0,0,0,0,0,0,
+
+        0,1,1,1,0,1,1,1,0,
+
+        0,1,0,1,0,1,0,1,0,
+
+        0,1,1,1,1,1,1,1,0,
+
+        0,0,0,1,0,1,0,0,0,
+
+        0,1,1,1,0,1,1,1,0,
+
+        0,1,0,0,0,0,0,1,0,
+
+        0,2,1,1,1,1,1,1,0,
+
+        0,0,0,0,0,0,0,0,0'
+      rowExpandAmount: 8
+      colExpandAmount: 5
+    cameraOption:
+      cameraPos: {x: 8, y: 17, z: 8}
       cameraRot: {x: 80, y: 0, z: 0}
     particleOption:
       gridPosY: 0.5

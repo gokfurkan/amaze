@@ -10,7 +10,7 @@ namespace Game.Dev.Scripts.Grid
     {
         public Transform startPos;
         
-        private int activatedGridAmount;
+        private int activatedGridAmount = 1;
         private int totalGridOnLevel;
         
         private Material gridParticleColor;
@@ -90,7 +90,7 @@ namespace Game.Dev.Scripts.Grid
             ActivateGridParticle(grid);
             
             activatedGridAmount++;
-            if (activatedGridAmount == totalGridOnLevel - 1)
+            if (activatedGridAmount == totalGridOnLevel)
             {
                 BusSystem.CallLevelEnd(true);
             }
@@ -224,7 +224,7 @@ namespace Game.Dev.Scripts.Grid
                 }
             }
 
-            return gridCount;
+            return gridCount + 1;
         }
 
         private int GetWallAmount()

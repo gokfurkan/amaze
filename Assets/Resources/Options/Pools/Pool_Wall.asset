@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pool_Wall
   m_EditorClassIdentifier: 
   prefab: {fileID: 694712254352331639, guid: 985971b340a3e9f4cafa5e942af15149, type: 3}
-  preloadAmount: 500
+  preloadAmount: 1000
   incrementSize: 10
