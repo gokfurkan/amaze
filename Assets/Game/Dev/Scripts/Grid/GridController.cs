@@ -1,4 +1,6 @@
-﻿using Game.Dev.Scripts.Interfaces;
+﻿using System;
+using Game.Dev.Scripts.Interfaces;
+using Game.Dev.Scripts.Scriptables;
 using Template.Scripts;
 using UnityEngine;
 
@@ -10,21 +12,28 @@ namespace Game.Dev.Scripts.Grid
 
         [Space(10)]
         public MeshRenderer meshRenderer;
-        public Material activeMaterial;
-        public Material passiveMaterial;
 
         private bool canInteract = true;
 
+        private Color gridActiveColor;
+        private Color gridPassiveColor;
+        private LevelDataOption levelData;
+
         public void InitGrid()
         {
+            levelData = InfrastructureManager.instance.gameSettings.levelOptions.GetLevelDataOption();
+            
+            gridActiveColor = levelData.gridActiveColor;
+            gridPassiveColor = levelData.gridPassiveColor;
+            
             if (hasStartGrid)
             {
                 canInteract = false;
-                meshRenderer.material = activeMaterial;
+                meshRenderer.material.color = gridActiveColor;
             }
             else
             {
-                meshRenderer.material = passiveMaterial;
+                meshRenderer.material.color = gridPassiveColor;
             }
         }
 
@@ -33,15 +42,22 @@ namespace Game.Dev.Scripts.Grid
             if (!canInteract) return;
 
             canInteract = false;
-            meshRenderer.material = activeMaterial;
-            BusSystem.CallActivateGrid();
+            meshRenderer.material.color = gridActiveColor;
+            BusSystem.CallActivateGrid(gameObject);
         }
 
         public void ResetGrid()
         {
             canInteract = true;
             hasStartGrid = false;
-            meshRenderer.material = passiveMaterial;
+            if (levelData != null)
+            {
+                meshRenderer.material.color = gridPassiveColor;
+                
+                levelData = null;
+                gridActiveColor = Color.clear;
+                gridPassiveColor = Color.clear;
+            }
         }
     }
 }

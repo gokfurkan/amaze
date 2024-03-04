@@ -14,12 +14,17 @@ namespace Game.Dev.Scripts.Scriptables
         {
             return SaveManager.instance.saveData.GetLevel() % levelDataOptions.Count;
         }
+
+        public LevelDataOption GetLevelDataOption()
+        {
+            return levelDataOptions[GetDataLevel()];
+        }
         
         #region Grid
 
         public int[,] GetGridValues()
         {
-            string[] lines = levelDataOptions[GetDataLevel()].gridData.Trim().Split('\n');
+            string[] lines = GetLevelDataOption().gridData.Trim().Split('\n');
     
             List<string> cleanedLines = new List<string>();
     
@@ -56,8 +61,8 @@ namespace Game.Dev.Scripts.Scriptables
         
         private int[,] ExpandMatrix(int[,] originalMatrix)
         {
-            int rowExpand = levelDataOptions[GetDataLevel()].rowExpandAmount;
-            int colExpand = levelDataOptions[GetDataLevel()].colExpandAmount;
+            int rowExpand = GetLevelDataOption().rowExpandAmount;
+            int colExpand = GetLevelDataOption().colExpandAmount;
             
             int originalRows = originalMatrix.GetLength(0);
             int originalCols = originalMatrix.GetLength(1);
@@ -131,9 +136,22 @@ namespace Game.Dev.Scripts.Scriptables
         [Space(10)]
         public int rowExpandAmount;
         public int colExpandAmount;
-
+        
+        [Space(10)] 
+        public Color gridActiveColor;
+        public Color gridPassiveColor;
+        
         [Header("Camera")] 
         public Vector3 cameraPos;
         public Vector3 cameraRot;
+
+        [Header("Particle")]
+        public Color gridParticleColor;
+
+        public float gridParticlePosY;
+        
+        [Space(10)]
+        public float gridParticleNormalMoveScale;
+        public float gridParticleEndMoveScale;
     }
 }

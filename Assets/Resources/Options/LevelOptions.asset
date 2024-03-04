@@ -29,8 +29,14 @@ MonoBehaviour:
       0,0,0,0,0,0,0'
     rowExpandAmount: 8
     colExpandAmount: 5
+    gridActiveColor: {r: 0.9150943, g: 0.29064307, b: 0.29064307, a: 1}
+    gridPassiveColor: {r: 0, g: 0, b: 0, a: 1}
     cameraPos: {x: 7, y: 15, z: 7.25}
     cameraRot: {x: 80, y: 0, z: 0}
+    gridParticleColor: {r: 1, g: 0, b: 0, a: 1}
+    gridParticlePosY: 0.5
+    gridParticleNormalMoveScale: 1.5
+    gridParticleEndMoveScale: 1.15
   - levelName: Level 2
     gridData: '0,0,0,0,0,0,0,
 
@@ -47,8 +53,14 @@ MonoBehaviour:
       0,0,0,0,0,0,0'
     rowExpandAmount: 8
     colExpandAmount: 5
+    gridActiveColor: {r: 0, g: 1, b: 0.9361973, a: 1}
+    gridPassiveColor: {r: 0, g: 0, b: 0, a: 1}
     cameraPos: {x: 7, y: 15, z: 7.25}
     cameraRot: {x: 80, y: 0, z: 0}
+    gridParticleColor: {r: 0, g: 0.46017575, b: 1, a: 1}
+    gridParticlePosY: 0.5
+    gridParticleNormalMoveScale: 1.5
+    gridParticleEndMoveScale: 1.15
   - levelName: Level 3
     gridData: '0,0,0,0,0,0,0,0,0,
 
@@ -71,5 +83,11 @@ MonoBehaviour:
       0,0,0,0,0,0,0,0,0'
     rowExpandAmount: 5
     colExpandAmount: 3
+    gridActiveColor: {r: 0, g: 0.4182918, b: 1, a: 1}
+    gridPassiveColor: {r: 0, g: 0, b: 0, a: 1}
     cameraPos: {x: 6, y: 15, z: 5.5}
     cameraRot: {x: 80, y: 0, z: 0}
+    gridParticleColor: {r: 0.1480751, g: 0, b: 1, a: 1}
+    gridParticlePosY: 0.5
+    gridParticleNormalMoveScale: 1.5
+    gridParticleEndMoveScale: 1.15

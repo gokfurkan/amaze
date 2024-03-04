@@ -1,19 +1,18 @@
 using System.Linq;
 using DG.Tweening;
 using Game.Dev.Scripts.Scriptables;
-using Sirenix.OdinInspector;
 using Template.Scripts;
 using UnityEngine;
 
 namespace Game.Dev.Scripts.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Singleton<PlayerController>
     {
         public Transform raycastOrigin;
 
         [Space(10)]
-        [ReadOnly] public bool hasMoving;
-        [ReadOnly] public int lastTargetGridAmount;
+        [HideInInspector] public bool hasMoving;
+        [HideInInspector] public int remainingMoveGridAmount;
 
         private PlayerOptions playerOptions;
 
@@ -29,8 +28,10 @@ namespace Game.Dev.Scripts.Player
             BusSystem.OnSetPlayerStartPos -= SetStartPos;
         }
 
-        private void Awake()
+        protected override void Initialize()
         {
+            base.Initialize();
+            
             playerOptions = InfrastructureManager.instance.gameSettings.playerOptions;
         }
 
@@ -69,7 +70,7 @@ namespace Game.Dev.Scripts.Player
                 .OrderBy(hit => Vector3.Distance(raycastOrigin.position, hit.point))
                 .ToArray();
 
-            lastTargetGridAmount = 0;
+            remainingMoveGridAmount = 0;
 
             foreach (RaycastHit hit in hits)
             {
@@ -78,7 +79,7 @@ namespace Game.Dev.Scripts.Player
                     break;
                 }
 
-                lastTargetGridAmount++;
+                remainingMoveGridAmount++;
             }
 
             MoveToTarget();
@@ -86,8 +87,8 @@ namespace Game.Dev.Scripts.Player
 
         private void MoveToTarget()
         {
-            var moveDistance = lastTargetGridAmount * playerOptions.moveAmountPerGrid;
-            var moveDuration = lastTargetGridAmount * playerOptions.moveDurationPerGrid;
+            var moveDistance = remainingMoveGridAmount * playerOptions.moveAmountPerGrid;
+            var moveDuration = remainingMoveGridAmount * playerOptions.moveDurationPerGrid;
 
             DOTween.Sequence()
                 .Append(transform.DOLocalMove(transform.localPosition + transform.forward * moveDistance, moveDuration)

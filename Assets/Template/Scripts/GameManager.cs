@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Dev.Scripts;
 using Game.Dev.Scripts.Grid;
 using Sirenix.OdinInspector;
 using Template.Scripts.Scriptables;
@@ -77,7 +78,8 @@ namespace Template.Scripts
                 pool.PutAll();
             }
             
-            BusSystem.CallResetGrids();
+            GridManager.instance.ResetGrids();
+            ParticleManager.instance.ResetParticles();
             
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);

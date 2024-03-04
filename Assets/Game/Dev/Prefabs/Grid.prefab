@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e1fd8a68221aea74f9e2cbfcd0486bd9, type: 2}
+  - {fileID: 2100000, guid: d7bbec89a8c1dba41b1e952a3ecafc50, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,5 +191,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasStartGrid: 0
   meshRenderer: {fileID: 6071004685859420353}
-  activeMaterial: {fileID: 2100000, guid: d7bbec89a8c1dba41b1e952a3ecafc50, type: 2}
-  passiveMaterial: {fileID: 2100000, guid: e1fd8a68221aea74f9e2cbfcd0486bd9, type: 2}

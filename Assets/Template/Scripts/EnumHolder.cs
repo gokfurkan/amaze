@@ -80,4 +80,9 @@ namespace Template.Scripts
         Wall,
         Grid,
     }
+
+    public enum ParticleType
+    {
+        Grid,
+    }
 }

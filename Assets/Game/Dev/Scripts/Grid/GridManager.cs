@@ -1,38 +1,36 @@
-﻿using System;
+﻿using Game.Dev.Scripts.Player;
 using Game.Dev.Scripts.Scriptables;
 using Template.Scripts;
 using UnityEngine;
 
 namespace Game.Dev.Scripts.Grid
 {
-    public class GridManager : MonoBehaviour
+    public class GridManager : Singleton<GridManager>
     {
         public Transform startPos;
         
-        private LevelOptions levelOptions;
-
         private int activatedGridAmount;
         private int totalGridOnLevel;
+        private Color gridParticleColor;
+        private LevelOptions levelOptions;
 
         private void OnEnable()
         {
             BusSystem.OnActivateGrid += OnActivateGrid;
-            BusSystem.OnResetGrids += ResetGrids;
         }
 
         private void OnDisable()
         {
             BusSystem.OnActivateGrid -= OnActivateGrid;
-            BusSystem.OnResetGrids -= ResetGrids;
         }
 
-        private void Awake()
+        protected override void Initialize()
         {
+            base.Initialize();
+            
             levelOptions = InfrastructureManager.instance.gameSettings.levelOptions;
-        }
-
-        private void Start()
-        {
+            gridParticleColor = levelOptions.GetLevelDataOption().gridParticleColor;
+            
             GenerateGrid();
         }
 
@@ -78,8 +76,12 @@ namespace Game.Dev.Scripts.Grid
             totalGridOnLevel = levelOptions.GetGridAmount();
         }
 
-        private void OnActivateGrid()
+        private void OnActivateGrid(GameObject grid)
         {
+            PlayerController.instance.remainingMoveGridAmount--;
+
+            ActivateGridParticle(grid);
+            
             activatedGridAmount++;
             if (activatedGridAmount == totalGridOnLevel - 1)
             {
@@ -87,7 +89,28 @@ namespace Game.Dev.Scripts.Grid
             }
         }
 
-        private void ResetGrids()
+        private void ActivateGridParticle(GameObject grid)
+        {
+            var gridParticle = ParticleManager.instance.GetParticle(ParticleType.Grid);
+            var gridParticleController = gridParticle.GetComponent<ParticleController>();
+            
+            gridParticleController.ChangeColor(gridParticleColor);
+            
+            Vector3 particleSpawnPos = grid.transform.position;
+            particleSpawnPos.y = levelOptions.GetLevelDataOption().gridParticlePosY;
+            
+            gridParticle.transform.position = particleSpawnPos;
+            gridParticle.gameObject.SetActive(true);
+            
+            float particleScale = PlayerController.instance.remainingMoveGridAmount == 0 ?
+                levelOptions.GetLevelDataOption().gridParticleEndMoveScale :
+                levelOptions.GetLevelDataOption().gridParticleNormalMoveScale;
+            gridParticle.transform.localScale = Vector3.one * particleScale;
+            
+            gridParticle.Play();
+        }
+
+        public void ResetGrids()
         {
             var gridPool = Pooling.instance.poolObjects[(int)PoolType.Grid];
             var passiveItems = gridPool.passiveItems.ToArray();

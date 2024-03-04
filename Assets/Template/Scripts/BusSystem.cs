@@ -55,10 +55,7 @@ namespace Template.Scripts
         
         //Grid
         
-        public static Action OnActivateGrid;
-        public static void CallActivateGrid() { OnActivateGrid?.Invoke(); }
-        
-        public static Action OnResetGrids;
-        public static void CallResetGrids() { OnResetGrids?.Invoke(); }
+        public static Action <GameObject> OnActivateGrid;
+        public static void CallActivateGrid(GameObject grid) { OnActivateGrid?.Invoke(grid); }
     }
 }

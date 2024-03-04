@@ -7,11 +7,11 @@ namespace Game.Dev.Scripts
 {
     public class CameraController : MonoBehaviour
     {
-        private LevelOptions levelOptions;
+        private LevelDataOption levelData;
 
         private void Awake()
         {
-            levelOptions = InfrastructureManager.instance.gameSettings.levelOptions;
+            levelData = InfrastructureManager.instance.gameSettings.levelOptions.GetLevelDataOption();
         }
 
         private void Start()
@@ -21,10 +21,8 @@ namespace Game.Dev.Scripts
 
         private void InitCamera()
         {
-            int currentLevel = levelOptions.GetDataLevel();
-            
-            transform.position = levelOptions.levelDataOptions[currentLevel].cameraPos;
-            transform.eulerAngles = levelOptions.levelDataOptions[currentLevel].cameraRot;
+            transform.position = levelData.cameraPos;
+            transform.eulerAngles = levelData.cameraRot;
         }
     }
 }
