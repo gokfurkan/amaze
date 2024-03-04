@@ -104,14 +104,14 @@ namespace Game.Dev.Scripts.Grid
             gridParticleController.ChangeMaterial(gridParticleColor);
             
             Vector3 particleSpawnPos = grid.transform.position;
-            particleSpawnPos.y = levelOptions.GetLevelDataOption().particleOption.gridPosY;
+            particleSpawnPos.y = levelOptions.GetEnvironmentOption().particleOption.gridPosY;
             
             gridParticle.transform.position = particleSpawnPos;
             gridParticle.gameObject.SetActive(true);
             
             float particleScale = PlayerController.instance.remainingMoveGridAmount == 0 ?
-                levelOptions.GetLevelDataOption().particleOption.gridEndScale :
-                levelOptions.GetLevelDataOption().particleOption.gridNormalScale;
+                levelOptions.GetEnvironmentOption().particleOption.gridEndScale :
+                levelOptions.GetEnvironmentOption().particleOption.gridNormalScale;
             gridParticle.transform.localScale = Vector3.one * particleScale;
             
             gridParticle.Play();

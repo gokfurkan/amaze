@@ -11,7 +11,7 @@ namespace Template.Scripts
         public int level;
         public int moneys;
 
-        public int environmentIndex;
+        public int environmentIndex = 1;
         
         [Header("Settings")]
         public bool sound = true;

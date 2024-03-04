@@ -36,7 +36,6 @@ namespace Game.Dev.Scripts.Scriptables
         [Space(10)]
         public GridOption gridOption;
         public CameraOption cameraOption;
-        public ParticleOption particleOption;
     }
 
     [Serializable]
@@ -78,5 +77,8 @@ namespace Game.Dev.Scripts.Scriptables
         public Material activeGridMaterial;
         public Material passiveGridMaterial;
         public Material gridParticleMaterial;
+        
+        [Space(10)]
+        public ParticleOption particleOption;
     }
 }

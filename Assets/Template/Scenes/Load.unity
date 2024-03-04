@@ -344,6 +344,18 @@ PrefabInstance:
       propertyPath: saveData.logs.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7952484976739433185, guid: 1b0b2f11d82aad147a0674ac828825d2, type: 3}
+      propertyPath: effects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952484976739433185, guid: 1b0b2f11d82aad147a0674ac828825d2, type: 3}
+      propertyPath: effects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e4aa470d2a153e4eaa483c198ca464a, type: 3}
+    - target: {fileID: 7952484976739433185, guid: 1b0b2f11d82aad147a0674ac828825d2, type: 3}
+      propertyPath: effects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 50bd296b908794b4484f066f0fcc6936, type: 3}
     - target: {fileID: 7952484977580690428, guid: 1b0b2f11d82aad147a0674ac828825d2, type: 3}
       propertyPath: m_Name
       value: Infrastructure

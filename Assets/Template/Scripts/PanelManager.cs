@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using MoreMountains.NiceVibrations;
 using UnityEngine;
 
 namespace Template.Scripts
@@ -66,6 +67,9 @@ namespace Template.Scripts
             if (win)
             {
                 yield return new WaitForSeconds(InfrastructureManager.instance.gameSettings.uiOptions.winPanelDelay);
+                
+                AudioManager.instance.PlaySound(AudioType.LevelWin);
+                HapticManager.instance.PlayHaptic(HapticTypes.MediumImpact);
                 
                 Activate(PanelType.Win);
                 

@@ -1,8 +1,10 @@
 using System.Linq;
 using DG.Tweening;
 using Game.Dev.Scripts.Scriptables;
+using MoreMountains.NiceVibrations;
 using Template.Scripts;
 using UnityEngine;
+using AudioType = Template.Scripts.AudioType;
 
 namespace Game.Dev.Scripts.Player
 {
@@ -46,7 +48,7 @@ namespace Game.Dev.Scripts.Player
             
             if (hasMoving) return;
             hasMoving = true;
-
+            
             RotateObjectOnSwipe(direction);
         }
 
@@ -89,6 +91,15 @@ namespace Game.Dev.Scripts.Player
         {
             var moveDistance = remainingMoveGridAmount * playerOptions.moveAmountPerGrid;
             var moveDuration = remainingMoveGridAmount * playerOptions.moveDurationPerGrid;
+
+            if (moveDistance == 0)
+            {
+                hasMoving = false;
+                return;
+            }
+          
+            AudioManager.instance.PlaySound(AudioType.Swipe);
+            HapticManager.instance.PlayHaptic(HapticTypes.LightImpact);
 
             DOTween.Sequence()
                 .Append(transform.DOLocalMove(transform.localPosition + transform.forward * moveDistance, moveDuration)

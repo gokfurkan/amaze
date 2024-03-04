@@ -64,7 +64,8 @@ namespace Template.Scripts
 
     public enum AudioType
     {
-        
+        Swipe,
+        LevelWin,
     }
 
     public enum SwipeDirection
