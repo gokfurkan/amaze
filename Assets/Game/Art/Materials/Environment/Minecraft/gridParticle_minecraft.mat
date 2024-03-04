@@ -209,7 +209,7 @@ Material:
     - _UseUVDistortion: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.26666668, g: 0.40784317, b: 0.14117648, a: 1}
+    - _BaseColor: {r: 0.8301887, g: 0.56688225, b: 0.18535653, a: 1}
     - _Color: {r: 2, g: 2, b: 2, a: 1}
     - _DissolveScroll: {r: 0, g: 0, b: 0, a: 0}
     - _DistortScrolling: {r: 0, g: 0, b: 1, a: 1}

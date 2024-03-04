@@ -36,7 +36,7 @@ MonoBehaviour:
     particleOption:
       gridPosY: 0.5
       gridNormalScale: 1
-      gridEndScale: 1.5
+      gridEndScale: 2
   environmentOptions:
   - environmentName: Minecraft
     wallMaterial: {fileID: 2100000, guid: 24a2ab8eee968d642878e6297e1b30b0, type: 2}
