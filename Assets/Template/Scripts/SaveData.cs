@@ -10,6 +10,8 @@ namespace Template.Scripts
         //Set
         public int level;
         public int moneys;
+
+        public int environmentIndex = 1;
         
         [Header("Settings")]
         public bool sound = true;

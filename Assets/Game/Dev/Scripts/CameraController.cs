@@ -21,8 +21,8 @@ namespace Game.Dev.Scripts
 
         private void InitCamera()
         {
-            transform.position = levelData.cameraPos;
-            transform.eulerAngles = levelData.cameraRot;
+            transform.position = levelData.cameraOption.cameraPos;
+            transform.eulerAngles = levelData.cameraOption.cameraRot;
         }
     }
 }

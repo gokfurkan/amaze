@@ -15,25 +15,25 @@ namespace Game.Dev.Scripts.Grid
 
         private bool canInteract = true;
 
-        private Color gridActiveColor;
-        private Color gridPassiveColor;
-        private LevelDataOption levelData;
+        private Material gridActiveMaterial;
+        private Material gridPassiveMaterial;
+        private LevelOptions levelOptions;
 
         public void InitGrid()
         {
-            levelData = InfrastructureManager.instance.gameSettings.levelOptions.GetLevelDataOption();
+            levelOptions = InfrastructureManager.instance.gameSettings.levelOptions;
             
-            gridActiveColor = levelData.gridActiveColor;
-            gridPassiveColor = levelData.gridPassiveColor;
+            gridActiveMaterial = levelOptions.GetEnvironmentOption().activeGridMaterial;
+            gridPassiveMaterial = levelOptions.GetEnvironmentOption().passiveGridMaterial;
             
             if (hasStartGrid)
             {
                 canInteract = false;
-                meshRenderer.material.color = gridActiveColor;
+                meshRenderer.material = gridActiveMaterial;
             }
             else
             {
-                meshRenderer.material.color = gridPassiveColor;
+                meshRenderer.material = gridPassiveMaterial;
             }
         }
 
@@ -42,7 +42,7 @@ namespace Game.Dev.Scripts.Grid
             if (!canInteract) return;
 
             canInteract = false;
-            meshRenderer.material.color = gridActiveColor;
+            meshRenderer.material = gridActiveMaterial;
             BusSystem.CallActivateGrid(gameObject);
         }
 
@@ -50,13 +50,11 @@ namespace Game.Dev.Scripts.Grid
         {
             canInteract = true;
             hasStartGrid = false;
-            if (levelData != null)
+            if (levelOptions != null)
             {
-                meshRenderer.material.color = gridPassiveColor;
-                
-                levelData = null;
-                gridActiveColor = Color.clear;
-                gridPassiveColor = Color.clear;
+                levelOptions = null;
+                gridActiveMaterial = null;
+                gridPassiveMaterial = null;
             }
         }
     }

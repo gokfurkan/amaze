@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 694712254352331638}
   - component: {fileID: 694712254352331637}
   - component: {fileID: 694712254352331636}
+  - component: {fileID: 213857780109883124}
   m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
@@ -176,3 +177,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileSize: 1
   tileOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &213857780109883124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694712254352331639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a64054c33e4ae299f231eae0e6748d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 694712254128501295}

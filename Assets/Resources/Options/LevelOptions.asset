@@ -14,80 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelDataOptions:
   - levelName: Level 1
-    gridData: '0,0,0,0,0,0,0,
+    gridOption:
+      gridData: '0,0,0,0,0,0,0,
 
-      0,1,1,1,0,1,0,
+        0,1,1,1,0,1,0,
 
-      0,1,0,1,0,1,0,
+        0,1,0,1,0,1,0,
 
-      0,1,1,1,1,1,0,
+        0,1,1,1,1,1,0,
 
-      0,0,0,1,0,1,0,
+        0,0,0,1,0,1,0,
 
-      0,2,1,1,0,1,0,
+        0,2,1,1,0,1,0,
 
-      0,0,0,0,0,0,0'
-    rowExpandAmount: 8
-    colExpandAmount: 5
-    gridActiveColor: {r: 0.9150943, g: 0.29064307, b: 0.29064307, a: 1}
-    gridPassiveColor: {r: 0, g: 0, b: 0, a: 1}
-    cameraPos: {x: 7, y: 15, z: 7.25}
-    cameraRot: {x: 80, y: 0, z: 0}
-    gridParticleColor: {r: 1, g: 0, b: 0, a: 1}
-    gridParticlePosY: 0.5
-    gridParticleNormalMoveScale: 1.5
-    gridParticleEndMoveScale: 1.15
-  - levelName: Level 2
-    gridData: '0,0,0,0,0,0,0,
-
-      0,1,1,1,1,1,0,
-
-      0,1,0,0,0,1,0,
-
-      0,1,0,1,0,1,0,
-
-      0,1,0,1,0,1,0,
-
-      0,2,0,1,1,1,0,
-
-      0,0,0,0,0,0,0'
-    rowExpandAmount: 8
-    colExpandAmount: 5
-    gridActiveColor: {r: 0, g: 1, b: 0.9361973, a: 1}
-    gridPassiveColor: {r: 0, g: 0, b: 0, a: 1}
-    cameraPos: {x: 7, y: 15, z: 7.25}
-    cameraRot: {x: 80, y: 0, z: 0}
-    gridParticleColor: {r: 0, g: 0.46017575, b: 1, a: 1}
-    gridParticlePosY: 0.5
-    gridParticleNormalMoveScale: 1.5
-    gridParticleEndMoveScale: 1.15
-  - levelName: Level 3
-    gridData: '0,0,0,0,0,0,0,0,0,
-
-      0,1,1,1,0,1,1,1,0,
-
-      0,1,0,1,0,1,0,1,0,
-
-      0,1,0,1,0,1,0,1,0,
-
-      0,1,1,1,1,1,1,1,0,
-
-      0,0,0,1,0,1,0,0,0,
-
-      0,0,0,1,0,1,0,0,0,
-
-      0,0,0,1,0,1,0,0,0,
-
-      0,0,0,1,2,1,0,0,0,
-
-      0,0,0,0,0,0,0,0,0'
-    rowExpandAmount: 5
-    colExpandAmount: 3
-    gridActiveColor: {r: 0, g: 0.4182918, b: 1, a: 1}
-    gridPassiveColor: {r: 0, g: 0, b: 0, a: 1}
-    cameraPos: {x: 6, y: 15, z: 5.5}
-    cameraRot: {x: 80, y: 0, z: 0}
-    gridParticleColor: {r: 0.1480751, g: 0, b: 1, a: 1}
-    gridParticlePosY: 0.5
-    gridParticleNormalMoveScale: 1.5
-    gridParticleEndMoveScale: 1.15
+        0,0,0,0,0,0,0'
+      rowExpandAmount: 8
+      colExpandAmount: 5
+    cameraOption:
+      cameraPos: {x: 7, y: 15, z: 7.25}
+      cameraRot: {x: 80, y: 0, z: 0}
+    particleOption:
+      gridPosY: 0.5
+      gridNormalScale: 1
+      gridEndScale: 1.5
+  environmentOptions:
+  - environmentName: Minecraft
+    wallMaterial: {fileID: 2100000, guid: 24a2ab8eee968d642878e6297e1b30b0, type: 2}
+    activeGridMaterial: {fileID: 2100000, guid: 8297eb4205d6e974b86ce438709ecc23, type: 2}
+    passiveGridMaterial: {fileID: 2100000, guid: 5788807fce5d2a743936d537e7541cd7, type: 2}
+    gridParticleMaterial: {fileID: 2100000, guid: ccfff22ed954c6f41ade040a8a7c8f22, type: 2}
+  - environmentName: Wood
+    wallMaterial: {fileID: 2100000, guid: 21b3cc503eb199b47b451211654444bd, type: 2}
+    activeGridMaterial: {fileID: 2100000, guid: 109273042e973674cbfb67fc95ef8481, type: 2}
+    passiveGridMaterial: {fileID: 2100000, guid: d395faed82dcd5346bc6408a0cc31f9a, type: 2}
+    gridParticleMaterial: {fileID: 2100000, guid: 342f87e71a766f245a275d36404383e8, type: 2}

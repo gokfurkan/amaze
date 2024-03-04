@@ -79,6 +79,7 @@ namespace Template.Scripts
             }
             
             GridManager.instance.ResetGrids();
+            GridManager.instance.ResetWalls();
             ParticleManager.instance.ResetParticles();
             
             string currentSceneName = SceneManager.GetActiveScene().name;

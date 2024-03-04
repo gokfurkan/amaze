@@ -9,13 +9,13 @@ namespace Game.Dev.Scripts
             
         }
 
-        public void ChangeColor(Color color)
+        public void ChangeMaterial(Material color)
         {
             Renderer[] allRenderer = transform.GetComponentsInChildren<Renderer>();
 
             for (int i = 0; i< allRenderer.Length; i++)
             {
-                allRenderer[i].material.color = color;
+                allRenderer[i].material = color;
             }
         }
     }
