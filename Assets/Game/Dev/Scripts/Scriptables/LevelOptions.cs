@@ -8,7 +8,6 @@ namespace Game.Dev.Scripts.Scriptables
     [CreateAssetMenu(fileName = "LevelOptions", menuName = "ScriptableObjects/LevelOptions")]
     public class LevelOptions : ScriptableObject
     {
-        public int tutorialLevelAmount;
         public List<LevelDataOption> levelDataOptions;
 
         public int GetDataLevel()
@@ -52,7 +51,31 @@ namespace Game.Dev.Scripts.Scriptables
                 }
             }
 
-            return gridValues;
+            return ExpandMatrix(gridValues);
+        }
+        
+        private int[,] ExpandMatrix(int[,] originalMatrix)
+        {
+            int rowExpand = levelDataOptions[GetDataLevel()].rowExpandAmount;
+            int colExpand = levelDataOptions[GetDataLevel()].colExpandAmount;
+            
+            int originalRows = originalMatrix.GetLength(0);
+            int originalCols = originalMatrix.GetLength(1);
+            
+            int expandedRows = originalRows + 2 * rowExpand;
+            int expandedCols = originalCols + 2 * colExpand;
+            
+            int[,] expandedMatrix = new int[expandedRows, expandedCols];
+            
+            for (int i = 0; i < originalRows; i++)
+            {
+                for (int j = 0; j < originalCols; j++)
+                {
+                    expandedMatrix[i + rowExpand, j + colExpand] = originalMatrix[i, j];
+                }
+            }
+
+            return expandedMatrix;
         }
         
         public int GetGridAmount()
@@ -100,11 +123,14 @@ namespace Game.Dev.Scripts.Scriptables
     public class LevelDataOption
     {
         public string levelName;
-        public bool tutorialLevel;
         
         [Header("Grid")]
         [TextArea(10, 10)]
         public string gridData;
+
+        [Space(10)]
+        public int rowExpandAmount;
+        public int colExpandAmount;
 
         [Header("Camera")] 
         public Vector3 cameraPos;
