@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Game.Dev.Scripts.Grid
 {
+#if UNITY_EDITOR
     [ExecuteInEditMode]
     public class LockToGrid : MonoBehaviour
     {
@@ -24,4 +25,5 @@ namespace Game.Dev.Scripts.Grid
             }
         }
     }
+#endif
 }
